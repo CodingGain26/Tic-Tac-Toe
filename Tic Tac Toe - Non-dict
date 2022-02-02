@@ -1,0 +1,255 @@
+
+print("Welcome to Tic Tac Toe")
+
+player1_name = input("What is your name player X?")
+player2_name = input("What is your name player O?")
+
+
+print ("Start!")
+
+
+Tic_tac_toe = ["_","_","_","_","_","_"," "," "," "]
+
+#Game board
+def game_board():
+        print(Tic_tac_toe[0] + "|" + Tic_tac_toe[1] + "|" + Tic_tac_toe[2], "\n"
+        + Tic_tac_toe[3] + "|" + Tic_tac_toe[4] + "|" + Tic_tac_toe[5], "\n"
+        + Tic_tac_toe[6] + "|" + Tic_tac_toe[7] + "|" + Tic_tac_toe[8])
+game_board()
+
+#To check winner
+def win_check():
+    if  (Tic_tac_toe[0] == Tic_tac_toe[1] == Tic_tac_toe[2]) == True:
+        print("Game finished, Player ", Tic_tac_toe[1], "has won")
+        exit()
+    elif  (Tic_tac_toe[3] == Tic_tac_toe[4] == Tic_tac_toe[5]) == True:
+        print("Game finished, Player", Tic_tac_toe[4], "has won")
+        exit()
+    elif  (Tic_tac_toe[6] == Tic_tac_toe[7] == Tic_tac_toe[8]) == True:
+        print("Game finished, Player", Tic_tac_toe[7], "has won")
+        exit()
+    elif  (Tic_tac_toe[0] == Tic_tac_toe[3] == Tic_tac_toe[6]) == True:
+        print("Game finished, Player ", Tic_tac_toe[0], "has won")
+        exit()
+    elif  (Tic_tac_toe[1] == Tic_tac_toe[4] == Tic_tac_toe[7]) == True:
+        print("Game finished, Player ", Tic_tac_toe[1], "has won")
+        exit() 
+    elif  (Tic_tac_toe[2] == Tic_tac_toe[5] == Tic_tac_toe[8]) == True:
+        print("Game finished, Player ", Tic_tac_toe[2], "has won")
+        exit()
+    elif  (Tic_tac_toe[0] == Tic_tac_toe[4] == Tic_tac_toe[8]) == True:
+        print("Game finished, Player ", Tic_tac_toe[0], "has won")
+        exit()
+    elif  (Tic_tac_toe[2] == Tic_tac_toe[4] == Tic_tac_toe[6]) == True:
+        print("Game finished, Player ", Tic_tac_toe[2], "has won")
+        exit()
+
+
+#To check if there are no more moves left
+
+
+while True: 
+    player1_first = int(input("Player 1, you will be player x, please choose which square you would like to mark? "))
+    if player1_first not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+Chosen_points = []
+
+def choosing_1A():
+    for i in range(0,9):
+        if i == player1_first:
+            Tic_tac_toe[player1_first] = "X" 
+            Chosen_points.append(player1_first)
+
+    game_board()
+
+choosing_1A()
+
+
+#1st Turn - O
+while True: 
+    player2_first = int(input("Player 2, you will be player O, please choose which square you would like to mark? "))
+    if player2_first in Chosen_points:
+        print("Not apppropriate choice", "Try again")
+    elif player2_first not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+
+def choosing_1B():
+    for i in range(0,9):
+        if i == player2_first:
+            Tic_tac_toe[player2_first] = "O" 
+            Chosen_points.append(player2_first)
+            
+            game_board()
+
+choosing_1B()
+
+
+#2nd turn - X
+while True: 
+    player1_second = int(input("Player 1, please enter your next move "))
+    if player1_second in Chosen_points:
+        print("Not apppropriate choice", "Try again")
+    elif player1_second not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+def choosing_2A():
+    for i in range(0,9):
+        if i == player1_second:
+            Tic_tac_toe[player1_second] = "X" 
+            Chosen_points.append(player1_second)
+            
+            game_board()
+
+choosing_2A()
+
+#2nd turn - 0
+while True: 
+    player2_second = int(input("Player 2, please enter your next move "))
+    if player2_second in Chosen_points:
+        print("Not apppropriate choice", "Try again")
+    elif player2_second not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+def choosing_2B():
+    for i in range(0,9):
+        if i == player2_second:
+            Tic_tac_toe[player2_second] = "O" 
+            Chosen_points.append(player2_second)
+            
+            game_board()
+
+choosing_2B()
+
+#3rd turn - X
+while True: 
+    player1_third = int(input("Player 1, please enter your next move "))
+    if player1_third in Chosen_points:
+        print("Not apppropriate choice", "Try again")
+    elif player1_third not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+def choosing_3A():
+    for i in range(0,9):
+        if i == player1_third:
+            Tic_tac_toe[player1_third] = "X" 
+            Chosen_points.append(player1_third)
+            
+            game_board()
+            win_check()
+
+choosing_3A()
+
+#3rd turn - O
+while True: 
+    player2_third = int(input("Player 2, please enter your next move "))
+    if player2_third in Chosen_points:
+        print("Not apppropriate choice", "Try again")
+    elif player2_third not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+def choosing_3B():
+    for i in range(0,9):
+        if i == player2_third:
+            Tic_tac_toe[player2_third] = "O" 
+            Chosen_points.append(player2_third)
+            
+            game_board()
+            win_check()
+
+choosing_3B()
+        
+#4th turn - X
+while True: 
+    player1_fourth = int(input("Player 1, please enter your next move "))
+    if player1_fourth in Chosen_points:
+        print("Not apppropriate choice", "Try again")
+    elif player1_fourth not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+def choosing_4A():
+    for i in range(0,9):
+        if i == player1_fourth:
+            Tic_tac_toe[player1_fourth] = "X" 
+            Chosen_points.append(player1_fourth)
+            
+            game_board()
+            win_check()
+
+choosing_4A()
+
+#4th turn - O
+while True: 
+    player2_fourth = int(input("Player 2, please enter your next move "))
+    if player2_fourth in Chosen_points:
+        print("Not apppropriate choice", "Try again")
+    elif player2_fourth not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+def choosing_4B():
+    for i in range(0,9):
+        if i == player2_fourth:
+            Tic_tac_toe[player2_fourth] = "O" 
+            Chosen_points.append(player2_fourth)
+            
+            game_board()
+            win_check()
+
+choosing_4B()
+
+#5th - Last Turn - X
+while True: 
+    player1_last = int(input("Player 1, please enter your next move "))
+    if player1_last in Chosen_points:
+        print("Not apppropriate choice", "Try again")
+    elif player1_last not in range(0,9):
+        print("Not apppropriate choice", "Try again")
+    else:
+        break
+
+
+def choosing_5A():
+    for i in range(0,9):
+        if i == player1_last:
+            Tic_tac_toe[player1_last] = "X" 
+            Chosen_points.append(player1_last)
+            
+            game_board()
+            win_check()
+
+choosing_5A()
+
+#No winner determined
+print("It is a draw!")
+
+exit() 
+
+
+
+
+
