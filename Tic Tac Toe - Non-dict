@@ -8,7 +8,7 @@ player2_name = input("What is your name player O?")
 print ("Start!")
 
 
-Tic_tac_toe = ["_","_","_","_","_","_"," "," "," "]
+Tic_tac_toe = [" ","_","_","_","_","_"," "," "," "]
 
 #Game board
 def game_board():
@@ -18,37 +18,65 @@ def game_board():
 game_board()
 
 #To check winner
+#make sure to update winning condition so that it does not say true to empty values 
 def win_check():
     if  (Tic_tac_toe[0] == Tic_tac_toe[1] == Tic_tac_toe[2]) == True:
+        print('hi')
         print("Game finished, Player ", Tic_tac_toe[1], "has won")
         exit()
     elif  (Tic_tac_toe[3] == Tic_tac_toe[4] == Tic_tac_toe[5]) == True:
         print("Game finished, Player", Tic_tac_toe[4], "has won")
+        print('hi1')
         exit()
     elif  (Tic_tac_toe[6] == Tic_tac_toe[7] == Tic_tac_toe[8]) == True:
         print("Game finished, Player", Tic_tac_toe[7], "has won")
+        print('hi2')
         exit()
     elif  (Tic_tac_toe[0] == Tic_tac_toe[3] == Tic_tac_toe[6]) == True:
         print("Game finished, Player ", Tic_tac_toe[0], "has won")
+        print('hi3')
         exit()
     elif  (Tic_tac_toe[1] == Tic_tac_toe[4] == Tic_tac_toe[7]) == True:
         print("Game finished, Player ", Tic_tac_toe[1], "has won")
+        print('hi4')
         exit() 
     elif  (Tic_tac_toe[2] == Tic_tac_toe[5] == Tic_tac_toe[8]) == True:
         print("Game finished, Player ", Tic_tac_toe[2], "has won")
+        print('hi5')
         exit()
     elif  (Tic_tac_toe[0] == Tic_tac_toe[4] == Tic_tac_toe[8]) == True:
         print("Game finished, Player ", Tic_tac_toe[0], "has won")
+        print('hi6')
         exit()
     elif  (Tic_tac_toe[2] == Tic_tac_toe[4] == Tic_tac_toe[6]) == True:
         print("Game finished, Player ", Tic_tac_toe[2], "has won")
+        print('hi7')
         exit()
 
 
 #To check if there are no more moves left
+#jp -  do a while loop with a counter
+# create a sep function to evaluate whos turn it is 
+# you might run into issues about scopee google that - and ask jp
+# somehting in your while loop to make sure it ends if winning condition is met 
+# debug the code use try and except 
+# board = [
+#      [' ', ' ', ' '],
+#      [' ', ' ', ' '],
+#      [' ', ' ', ' ']
+#      ]
+# try to figure out how to iterate over this to print without having the underscores in the values 
+# gonna have to use for loop - review 
+
+
+count = 0
+
+while count < 9:
 
 
 while True: 
+    #why use int
+    #review while loop 
     player1_first = int(input("Player 1, you will be player x, please choose which square you would like to mark? "))
     if player1_first not in range(0,9):
         print("Not apppropriate choice", "Try again")
@@ -80,7 +108,6 @@ while True:
         break
 
 
-
 def choosing_1B():
     for i in range(0,9):
         if i == player2_first:
@@ -108,7 +135,6 @@ def choosing_2A():
         if i == player1_second:
             Tic_tac_toe[player1_second] = "X" 
             Chosen_points.append(player1_second)
-            
             game_board()
 
 choosing_2A()
@@ -129,7 +155,6 @@ def choosing_2B():
         if i == player2_second:
             Tic_tac_toe[player2_second] = "O" 
             Chosen_points.append(player2_second)
-            
             game_board()
 
 choosing_2B()
