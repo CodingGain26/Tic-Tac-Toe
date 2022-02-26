@@ -1,0 +1,82 @@
+print("Welcome to Tic Tac Toe")
+
+playerX_name = str(input("The first player will be X - what is your name?"))
+player0_name = str(input("The first player will be 0 - what is your name?"))
+
+board = ["_","_","_","_","_","_","_","_","_"]
+
+def game_board():
+        print(board[0] + "|" + board[1] + "|" + board[2], "\n"
+        + board[3] + "|" + board[4] + "|" + board[5], "\n"
+        + board[6] + "|" + board[7] + "|" + board[8])
+
+
+def win_check():
+    if  board[0] == board[1] == board[2] != "_":
+        print('hi')
+        print("Game finished, Player ", board[1], "has won")
+        exit()
+    elif  board[3] == board[4] == board[5] != "_":
+        print("Game finished, Player", board[4], "has won")
+        print('hi1')
+        exit()
+    elif  board[6] == board[7] == board[8] != "_":
+        print("Game finished, Player", board[7], "has won")
+        print('hi2')
+        exit()
+    elif  board[0] == board[3] == board[6] != "_":
+        print("Game finished, Player ", board[0], "has won")
+        print('hi3')
+        exit()
+    elif  board[1] == board[4] == board[7] != "_":
+        print("Game finished, Player ", board[1], "has won")
+        print('hi4')
+        exit() 
+    elif  board[2] == board[5] == board[8] != "_":
+        print("Game finished, Player ", board[2], "has won")
+        print('hi5')
+        exit()
+    elif  board[0] == board[4] == board[8] != "_":
+        print("Game finished, Player ", board[0], "has won")
+        print('hi6')
+        exit()
+    elif  board[2] == board[4] == board[6] != "_":
+        print("Game finished, Player ", board[2], "has won")
+        print('hi7')
+        exit()
+ 
+chosen_points = []
+count = 9
+
+game_board()
+
+while count <= 9:
+    if count % 2 == 1:
+        playerX_choice = int(input("Player X, please choose your spot"))
+        if playerX_choice in chosen_points:
+            print("Not appropriate choice, try again")
+        elif playerX_choice not in range(0,9):
+            print("Not appropriate choice, try again")
+        else:
+            chosen_points.append(playerX_choice)
+            board[playerX_choice] = "X" 
+            count -= 1 
+            game_board()
+            win_check()
+    elif count % 2 == 0 and count > 0:
+        playerO_choice = int(input("Player O, please choose your spot"))
+        if playerO_choice in chosen_points:
+            print("Not appropriate choice, try again")
+        elif playerO_choice not in range(0,9):
+            print("Not appropriate choice, try again")
+        else:
+            chosen_points.append(playerO_choice)
+            board[playerO_choice] = "O" 
+            count -= 1 
+            game_board()
+            win_check()
+    elif count == 0:
+        print("It's a draw! Please play again!")
+        exit()
+
+
