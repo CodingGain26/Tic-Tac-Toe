@@ -3,14 +3,24 @@ print("Welcome to Tic Tac Toe")
 playerX_name = str(input("The first player will be X - what is your name?"))
 player0_name = str(input("The first player will be 0 - what is your name?"))
 
+#still not 2d array, board should look like this
+# board = [
+#     ['','',''],
+#     ['','',''],
+#     ['','',''],
+# ]
+#to access the first value you need to do (0,0)
+
 board = ["_","_","_","_","_","_","_","_","_"]
 
+
+#once you change it to a 2darray you can use a forloop to print the board, try it this way so you know how to use for loops 
 def game_board():
         print(board[0] + "|" + board[1] + "|" + board[2], "\n"
         + board[3] + "|" + board[4] + "|" + board[5], "\n"
         + board[6] + "|" + board[7] + "|" + board[8])
 
-
+#get rid of print statements with hi, i dont think you need the exit function in the win_check function 
 def win_check():
     if  board[0] == board[1] == board[2] != "_":
         print('hi')
@@ -46,7 +56,18 @@ def win_check():
         exit()
  
 chosen_points = []
+
+#its not intuitive to have count start off at 9 and then check if the condition is 0 to check if its a tie, reverse it 
+#count should check how many turns has happened otherwise you should name it something else 
 count = 9
+
+
+# try to make a function outside of the whileloop to deterine whos turn it is call it something like turn_check, pass in the relevant variables and return whos turn it is 
+# look into try and except to handle errors instead of nested if statement 
+# right now if i dont enter a name it will continue on, try and find a way to ensure I enter something for a name
+# right now if I enter a bad choice it will just traceback try and find a way to make sure the loop can handle errors 
+
+
 
 game_board()
 
